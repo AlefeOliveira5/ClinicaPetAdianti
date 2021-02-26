@@ -1,0 +1,83 @@
+<?php
+/**
+ * FormStaticSelectionView
+ *
+ * @version    1.0
+ * @author     Johnas
+ * @copyright  Copyright (c) 2006 Adianti Solutions Ltd. (http://www.adianti.com.br)
+ * @license    http://www.adianti.com.br/framework-license
+ */
+class ConsultaForm extends TPage{
+    private $form;
+    
+    /**
+     * Class constructor
+     * Creates the page
+     */
+    function __construct()
+    {
+        parent::__construct();
+        
+        // creates the form
+        $this->form = new TForm('Consultaform');
+        
+        // creates the notebook
+        $notebook = new TNotebook;
+        $this->form->add($notebook);
+        
+        // creates the containers for each notebook page
+        $table1 = new TTable;
+        
+        $table1->width = '100%';
+        
+        $table1->style = 'padding: 10px';
+        
+        // adds two pages in the notebook
+        $notebook->appendPage('Consulta', $table1);
+        
+        // create the form fields
+        $data_consulta  = new TDate('data_consulta');
+        $animal_id  = new TCombo('animal_id');
+        $medico_id  = new TCombo('medico_id');
+        
+        $data_consulta->setSize('30%');
+        $animal_id->setSize('100%');
+        $medico_id->setSize('100%');
+        
+        // add rows for the fields
+        $table1->addRowSet( new TLabel('Data Consulta'), $data_consulta );
+        $table1->addRowSet( new TLabel('Animal'), $animal_id );
+        $table1->addRowSet( new TLabel('Medico'), $medico_id );
+        
+        // creates the action button
+        $button = new TButton('action1');
+        $button->setAction(new TAction(array($this, 'onSend')), 'Send');
+        $button->setImage('far:check-circle green');
+        
+        // define wich are the form fields
+        $this->form->setFields([$data_consulta, $animal_id, $medico_id, $button]);
+        
+        $panel = new TPanelGroup ('Marcar Consulta');
+        $panel->add($this->form);
+        $panel->addFooter($button);
+        
+        // wrap the page content using vertical box
+        $vbox = new TVBox;
+        $vbox->style = 'width: 100%';
+        $vbox->add(new TXMLBreadCrumb('menu.xml', __CLASS__));
+        $vbox->add($panel);
+        
+        parent::add($vbox);
+    }
+    
+    /**
+     * Get the post data
+     */
+    public function onSend($param)
+    {
+        $data = $this->form->getData();
+        $this->form->setData($data);
+        
+        new TMessage('info', str_replace(',', '<br>', json_encode($data)));
+    }
+}

@@ -1,0 +1,34 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of Animal
+ *
+ * @author Johnas
+ */
+class Animal extends \Adianti\Database\TRecord{
+    const TABLENAME = 'animal';
+    const PRIMARYKEY= 'id';
+    const IDPOLICY =  'serial'; // {max, serial}
+    
+    
+    /**
+     * Constructor method
+     */
+    public function __construct($id = NULL, $callObjectLoad = TRUE)
+    {
+        parent::__construct($id, $callObjectLoad);
+        parent::addAttribute('nome_animal');
+        parent::addAttribute('raca');
+        parent::addAttribute('idade');
+        parent::addAttribute('peso');
+        parent::addAttribute('tamanho');
+        parent::addAttribute('sexo');
+        parent::addAttribute('especie');
+    }
+}

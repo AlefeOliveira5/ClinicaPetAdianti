@@ -1,0 +1,68 @@
+<?php
+/**
+ * PacienteForm
+ *
+ * @version    1.0
+ * @package    control
+ * @subpackage classes
+ * @author     Johnas
+
+ */
+class AnimalForm extends TStandardForm
+{
+    protected $form; // form
+    
+    /**
+     * Class constructor
+     * Creates the page and the registration form
+     */
+    function __construct()
+    {
+        parent::__construct();
+        
+        $ini  = AdiantiApplicationConfig::get();
+        
+        $this->setDatabase('bancomysql');              // defines the database
+        $this->setActiveRecord('Animal');     // defines the active record
+        
+        // creates the form
+        $this->form = new BootstrapFormBuilder('form_Animal');
+        $this->form->setFormTitle('Animal');
+        
+        // create the form fields
+        $nome_animal = new TEntry('nome_animal');
+        $raca = new TEntry('raca');
+        $idade = new TEntry('idade');
+        $peso = new TEntry('peso');
+        $tamanho = new TEntry('´tamanho');
+        $sexo = new TEntry('sexo');
+        $especie = new TEntry('especie');
+        
+       
+        
+        // add the fields
+        $this->form->addFields( [new TLabel('Nome Animal')], [$nome_animal] );
+        $this->form->addFields( [new TLabel('Raça')], [$raca] );
+        $this->form->addFields( [new TLabel('Idade')], [$idade] );
+        $this->form->addFields( [new TLabel('Peso')], [$peso] );
+        $this->form->addFields( [new TLabel('Sexo')], [$sexo] );
+        $this->form->addFields( [new TLabel('Especie')], [$especie] );
+        
+        $nome_animal->setSize('70%');
+        $nome_animal->addValidation( 'Nome', new TRequiredValidator );
+        
+        // create the form actions
+        $btn = $this->form->addAction(_t('Save'), new TAction(array($this, 'onSave')), 'far:save');
+        $btn->class = 'btn btn-sm btn-primary';
+        $this->form->addActionLink(_t('Clear'),  new TAction(array($this, 'onEdit')), 'fa:eraser red');
+        $this->form->addActionLink(_t('Back'),new TAction(array('AnimalList','onReload')),'far:arrow-alt-circle-left blue');
+        
+        // vertical box container
+        $container = new TVBox;
+        $container->style = 'width: 100%';
+        $container->add(new TXMLBreadCrumb('menu.xml', 'AnimalList'));
+        $container->add($this->form);
+        
+        parent::add($container);
+    }
+}

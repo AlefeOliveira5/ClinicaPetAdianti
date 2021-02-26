@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/config/bancomysql.ini</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/control/cadastro/PacienteList.class.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/index.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/control/cadastro/PacienteForm.class.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/lib/adianti/database/TRecord.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/lib/adianti/base/TStandardList.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/menu.xml</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/control/admin/SystemUnitList.class.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/config/application.ini</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/control/admin/SystemProgramList.class.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/control/admin/SystemUnitForm.class.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/lib/adianti/control/TPage.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/app/model/cadastro/Paciente.class.php</file>
+            <file>file:/C:/laragon/www/aulaweb/adianti/lib/adianti/base/AdiantiStandardListTrait.php</file>
+        </group>
+    </open-files>
+</project-private>

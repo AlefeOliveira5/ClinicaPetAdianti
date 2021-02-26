@@ -1,0 +1,6 @@
+host   = "localhost"
+name   = "clinica_pet"
+user   = "root"
+pass   = ""
+type   = "mysql"
+prep   = "1"
